@@ -21,27 +21,27 @@
             @csrf
                 <!-- Name -->
                 <div>
-                    <x-label for="name" :value="__('Name')" />
+                    <x-label for="name" :value="__('messages.name')" />
 
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"/>
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required/>
                 </div>
 
                 <!-- English name -->
                 <div class="mt-4">
-                    <x-label for="english_name" :value="__('English name')" />
+                    <x-label for="english_name" :value="__('messages.english_name')" />
 
-                    <x-input id="english_name" class="block mt-1 w-full" type="text" name="english_name" :value="old('english_name')"/>
+                    <x-input id="english_name" class="block mt-1 w-full" type="text" name="english_name" :value="old('english_name')" required/>
                 </div>
 
                 <!-- Assignment -->
                 <div class="mt-4">
-                    <x-label for="assignment" :value="__('Assignment')" />
+                    <x-label for="assignment" :value="__('messages.assignment')" />
 
-                    <x-input id="assignment" class="block mt-1 w-full" type="text" name="assignment" :value="old('assignment')"/>
+                    <x-input id="assignment" class="block mt-1 w-full" type="text" name="assignment" :value="old('assignment')" required/>
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="study_type_selection" :value="__('Choose your role')" />
+                    <x-label for="study_type_selection" :value="__('messages.study_type')" />
                     <select id="study_type_selection" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full"
                             name="study_type" required >
                         <option value="professional">Professional study</option>

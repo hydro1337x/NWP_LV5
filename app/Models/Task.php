@@ -20,4 +20,9 @@ class Task extends Model
         'assignment',
         'study_type',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

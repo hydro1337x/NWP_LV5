@@ -6,12 +6,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function getUsers(Request $request){
-        $users = User::get();
-        $loggedUser = $request->user();
-        return view('dashboard', ['users' => $users, 'loggedUser'=> $loggedUser]);
-    }
-
     public function getRoleEditingView($id){
         $user = User::findOrFail($id);
         return view('edit-role', ['selectedUser'=>$user]);
