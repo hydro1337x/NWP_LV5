@@ -49,12 +49,12 @@
                             <th>Study type</th>
                         </tr>
                         @foreach ($tasks as $task)
+                        @if ($loggedUser->role === 'student' && $task->isReserved === 0)
                         <tr class="text-lg">
                             <td>{{$task->name}}</td>
                             <td>{{$task->english_name}}</td>
                             <td>{{$task->assignment}}</td>
                             <td>{{$task->study_type}}</td>
-                            @if ($loggedUser->role === 'student')
                             <td>
                                 <form method="post" action="{{route('apply.for.task')}}">
                                 @csrf
@@ -64,13 +64,26 @@
                                     </x-button>
                                 </form>
                             </td>
-                            @endif
-                            @if ($loggedUser->role === 'professor')
+                        </tr>
+                        @endif
+                        
+                        @if ($loggedUser->role === 'professor') 
+                        <tr class="text-lg">
+                            <td>{{$task->name}}</td>
+                            <td>{{$task->english_name}}</td>
+                            <td>{{$task->assignment}}</td>
+                            <td>{{$task->study_type}}</td>
+                            @if ($task->isReserved === 1)
+                            <td>
+                            {{ __('Reserved') }}
+                            </td>
+                            @else
                             <td>
                                 <a href="/getApplicationsView/{{$task->id}}" class="ml-4">{{ __('Applications') }} </a>
                             </td>
                             @endif
                         </tr>
+                        @endif
                         @endforeach
                     </table>
                 </div>

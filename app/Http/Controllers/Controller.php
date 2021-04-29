@@ -17,7 +17,7 @@ class Controller extends BaseController
     public function getDashboardData(Request $request){
         $users = User::get();
         $loggedUser = $request->user();
-        $tasks = Task::where('isReserved', 0)->get();
+        $tasks = Task::get();
 
         return view('dashboard', ['users' => $users, 'loggedUser'=> $loggedUser, 'tasks' => $tasks]);
     }
